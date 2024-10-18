@@ -6,7 +6,7 @@
 
 **🎮 MobA 操作手机就像你一样.**
 
-🌐 [网站](https://github.com/OpenDFM/MobA) | 📃 [论文](https://arxiv.org/abs/2410.13757/) | 🤗 [MobBench](https://github.com/OpenDFM/MobA) | 🗃️ [代码](https://huggingface.co/datasets/OpenDFM/MobA-MobBench)
+🌐 [网站](https://github.com/OpenDFM/MobA) | 📃 [论文](https://arxiv.org/abs/2410.13757/) | 🤗 [MobBench](https://huggingface.co/datasets/OpenDFM/MobA-MobBench) | 🗃️ [代码](https://github.com/OpenDFM/MobA)
 
 简体中文 | [English](./README.md)
 

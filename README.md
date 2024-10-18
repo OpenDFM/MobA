@@ -6,7 +6,7 @@
 
 **🎮 MobA manipulates mobile phones just like how you would.**
 
-🌐 [Website](https://github.com/OpenDFM/MobA) | 📃 [Paper](https://arxiv.org/abs/2410.13757/) | 🤗 [MobBench](https://github.com/OpenDFM/MobA) | 🗃️ [Code](https://github.com/OpenDFM/MobA)
+🌐 [Website](https://github.com/OpenDFM/MobA) | 📃 [Paper](https://arxiv.org/abs/2410.13757/) | 🤗 [MobBench](https://huggingface.co/datasets/OpenDFM/MobA-MobBench) | 🗃️ [Code](https://github.com/OpenDFM/MobA)
 
 [简体中文](./README_zh.md) | English
 
