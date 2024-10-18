@@ -1,0 +1,59 @@
+### Project Config ###
+
+DEBUG_MODE: True
+
+### Client Config ###
+# Client is not released yet
+
+ENABLE_CLIENT: False
+CLIENT_PORT: 18080
+
+### Agent Config ###
+
+USE_MEMORY: True
+USE_PLAN: True
+STORAGE_PATH: "" # default: "MOBA/storage"
+
+### LLM Config ###
+
+MODELS: {
+  "GLOBAL": "OpenAI.gpt-4o",  # The model used in complex scenarios.
+  "LOCAL": "OpenAI.gpt-4o", # The model used in simple scenarios.
+  "EMBEDDING": "OpenAI.text-embedding-3-small", # The model used for text embedding.
+}
+# ["OpenAI.gpt-4-vision-preview","Gemini.gemini-pro-vision","Gemini.gemini-1.5-pro-latest"]
+
+OPENAI_API_BASE_URL: "https://api.openai.com/v1/chat/completions"
+OPENAI_API_KEY: "replace-with-your-openai-api-key"
+
+GEMINI_API_KEY: "replace-with-your-gemini-api-key"
+
+PRICE: { # The price of the model per 1k tokens, [input, output]
+    "gpt-4-vision-preview": [0.01,0.03],
+    "gpt-3.5-turbo-0125":[0.0005,0.0015],
+    "gpt-4o": [0.005,0.015],
+    "gpt-4o-mini": [0.00015,0.0006],
+    "gemini-pro-vision": [0.0,0.0],
+    "gemini-1.5-pro-latest": [0.0,0.0],
+    "text-embedding-3-small": [0.00002,0.0]
+}
+
+API_MAX_TRY: 2
+
+### Data Config ###
+
+IMAGE_MODE: 3
+# -1: no image, only text, 0: original image, 1: marked image, 2: original+marked images, 3: concatenated original+marked images
+REFLECT_IMAGE_MODE: 3
+# -1: no image, only text, 0: current image, 1: history image, 2: current+history image, 3: concatenated current+history images
+SPLIT_IMAGE_MODE: 0
+# -1: no image, only text, 0: original image, 1: marked image, 2: original+marked images, 3: concatenated original+marked images
+
+MAX_IMAGE_SIZE: 1024 # The maximum size of the images, set to -1 to disable the image resizing
+
+### Executor Config ###
+
+MAX_STEP: 20
+COMMAND_MAX_TRY: 3
+OPEN_APP_METHOD: 2
+# 1: start with package list, 2: start with document

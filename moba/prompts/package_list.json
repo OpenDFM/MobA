@@ -1,0 +1,97 @@
+{
+  "com.sec.android.app.clockpackage": {
+    "description": [
+      "闹钟",
+      "时钟",
+      "计时器",
+      "倒计时"
+    ],
+    "activity": "com.sec.android.app.clockpackage.ClockPackage"
+  },
+  "com.baidu.tieba": {
+    "description": [
+      "百度贴吧"
+    ],
+    "activity": "com.baidu.tieba.tblauncher.MainTabActivity"
+  },
+  "com.tencent.mm": {
+    "description": [
+      "微信",
+      "朋友圈"
+    ],
+    "activity": "com.tencent.mm.ui.LauncherUI"
+  },
+  "com.MobileTicket": {
+    "description": [
+      "12306",
+      "火车票",
+      "高铁票"
+    ],
+    "activity": "com.MobileTicket.ui.activity.MainActivity"
+  },
+  "com.tencent.mobileqq": {
+    "description": [
+      "QQ",
+      "空间"
+    ],
+    "activity": "com.tencent.mobileqq.activity.SplashActivity"
+  },
+  "com.mcdonalds.gma.cn": {
+    "description": [
+      "麦当劳",
+      "麦乐送"
+    ],
+    "activity": "com.mcdonalds.gma.cn.activity.MainActivity"
+  },
+  "com.yek.android.kfc.activitys": {
+    "description": [
+      "肯德基",
+      "KFC",
+      "疯狂星期四"
+    ],
+    "activity": "com.yum.android.superkfc.ui.v5.HomeV5Activity"
+  },
+  "com.htinns": {
+    "description": [
+      "华住会",
+      "H World"
+    ],
+    "activity": "com.htinns.UI.LaunchActivity"
+  },
+  "com.douban.frodo": {
+    "description": [
+      "豆瓣",
+      "书影音"
+    ],
+    "activity": "com.douban.frodo.activity.SplashActivity"
+  },
+  "tv.danmaku.bili": {
+    "description": [
+      "哔哩哔哩",
+      "B站",
+      "BiliBili"
+    ],
+    "activity": "tv.danmaku.bili.MainActivityV2"
+  },
+  "com.jingdong.app.mall": {
+    "description": [
+      "京东",
+      "JD.com"
+    ],
+    "activity": "com.jingdong.app.mall.MainFrameActivity"
+  },
+  "com.google.android.calendar": {
+    "description": [
+      "谷歌日历",
+      "日程",
+      "任务提醒"
+    ],
+    "activity": "com.google.android.calendar.AllInOneCalendarActivity"
+  },
+  "com.sec.android.daemonapp": {
+    "description": [
+      "天气"
+    ],
+    "activity": "com.sec.android.daemonapp.app.MainActivity"
+  }
+}

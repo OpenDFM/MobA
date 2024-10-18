@@ -1,0 +1,93 @@
+{
+  "Click": {
+    "type": "single",
+    "status": "active",
+    "usage": "Click(element_index: int)",
+    "description": "This function clicks the center of the UI element with the specified element index.",
+    "example": "To click the element numbered 5, use Tap(5)."
+  },
+  "Click_by_Coordinate": {
+    "type": "single",
+    "status": "active",
+    "usage": "Click_by_Coordinate(x: double, y: double)",
+    "description": "This function simulates a click at the specified x and y coordinates on the screen. It is especially useful when you have an unmarked screenshot and need to interact with precise locations. The coordinates x and y should be normalized based on the fractions of the screen width and height, respectively, with (0, 0) located at the top-left corner of the screen, and (1000, 1000) bottom-right. The values of x and y must be specified to an integer ranging from 0 to 1000.",
+    "example": "To click at the center of the screen, use Click_by_Coordinate(500, 500)."
+  },
+  "Double Click": {
+    "type": "single",
+    "status": "active",
+    "usage": "Double_Click(element_index: int)",
+    "description": "This function double clicks the center of the UI element with the specified element index.",
+    "example": "To double click the element numbered 5, use Double_Click(5)."
+  },
+  "Long Press": {
+    "type": "single",
+    "status": "active",
+    "usage": "Long_Press(element_index: int)",
+    "description": "This function long-presses the center of the UI element with the specified element index.",
+    "example": "To long-press the element numbered 5, use Long_Press(5)."
+  },
+  "Scroll": {
+    "type": "single",
+    "status": "deactivated",
+    "usage": "Scroll(element_index: int, direction: str, distance: str or int)",
+    "description": "This function swipes from the center of the UI element with the specified element index. Available directions: ['UP', 'DOWN', 'LEFT', 'RIGHT']. Available distances: ['SHORT': 1/10, 'MEDIUM': 1/5, 'LONG': 1/2, int: number of pixels].",
+    "example": "To swipe up 1/5 of the screen height starting from the center of the screen, use Scroll(5, 'up', 'medium')."
+  },
+  "Swipe": {
+    "type": "single",
+    "status": "active",
+    "usage": "Swipe(direction: str, distance: str)",
+    "description": "This function swipes from the center of the screen. Available directions: ['UP', 'DOWN', 'LEFT', 'RIGHT']. Available distances: ['SHORT': 1/10, 'LONG': 1/2, int: number of pixels].",
+    "example": "To swipe up to see the below part in the setting page, use Swipe('UP', 'LONG')."
+  },
+  "Type": {
+    "type": "single",
+    "status": "active",
+    "usage": "Type(text: str)",
+    "description": "This function inputs text on the current input box.",
+    "example": "To input 'hello', use Type('hello')."
+  },
+  "Back": {
+    "type": "single",
+    "status": "active",
+    "usage": "Back()",
+    "description": "This function presses the back key to return to the previous screen or status. Sometimes you should click 'Checked' tab to confirm your settings and back to the previous screen at the same time.",
+    "example": "If you opened a wrong page and want to go back, use Back()."
+  },
+  "Error": {
+    "type": "system",
+    "status": "deactivated",
+    "usage": "Failed()",
+    "description": "This function indicates that the task cannot be completed.",
+    "example": "If you are certain that the current task cannot be completed, i.g. you are asked to buy a movie ticket of yesterday, or you want to start over, use Failed()."
+  },
+  "Box Input": {
+    "type": "combination",
+    "status": "active",
+    "usage": "Box_Input(element_index: int, text: str)",
+    "description": "This function clicks the center of the input box or search bar with the specified element index, inputs given text, and then press 'Enter' to enable search or confirm the input.",
+    "example": "To click the type box numbered 5, input 'hello', and then click the search button, use Box_Input(5, 'hello')."
+  },
+  "Open App": {
+    "type": "system",
+    "status": "active",
+    "usage": "Open_App(description: Optional[str])",
+    "description": "This function helps you to locate a target application with a short description and open it automatically. You could specify the package name directly or the application title. If you just need to open one of similar apps, you can describe what function you want to use.",
+    "example": "If you want to set a 10 min timer or add an alarm, use Open_App('alarms or clock')."
+  },
+  "Close App": {
+    "type": "system",
+    "status": "deactivated",
+    "usage": "Close_App(package_name: Optional[str])",
+    "description": "This function closes the app with the specified package name. If the package name is not specified, the current app will be closed.",
+    "example": "If you want to disable the background timer, use Close_App('com.sec.android.app.clockpackage')."
+  },
+  "Finish": {
+    "type": "system",
+    "status": "active",
+    "usage": "Finish()",
+    "description": "This function indicates that the task is completed.",
+    "example": "If you are certain that the current task is completed, use Finish()."
+  }
+}
