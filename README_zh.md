@@ -51,6 +51,10 @@ python executor.py
 
 你现在应该可以在 Windows 上顺利运行 MobA 了。你可以在 [huggingface](https://huggingface.co/datasets/OpenDFM/MobA-MobBench) 上找到 MobBench，即我们在论文中测试的那五十个任务。
 
+## 📚 MobBench
+
+<iframe src="https://huggingface.co/datasets/OpenDFM/MobA-MobBench/embed/viewer/default/MobBench" frameborder="0" width="100%" height="560px"></iframe>
+
 ## 📑 引用
 
 如果您觉得我们的工作有用，请引用我们！
