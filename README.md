@@ -2,7 +2,7 @@
 <div align="center">
 <img src="./assets/title.png"></img> 
 
-<img src="./assets/overview.png" width="500em" ></img>
+<img src="./assets/overview.png" width="70%" ></img>
 
 **🎮 MobA manipulates mobile phones just like how you would.**
 
@@ -15,6 +15,7 @@
 
 ## 🔥 News
 
+- **[2024.10.19]** We release MobBench on [Huggingface](https://huggingface.co/datasets/OpenDFM/MobA-MobBench) and provide the corresponding English translation.
 - **[2024.10.18]** We open-source MobA on [GitHub](https://github.com/OpenDFM/MobA), and our paper is available on [arXiv](https://arxiv.org/abs/2410.13757).
 
 ## 📖 Introduction
@@ -50,6 +51,10 @@ python executor.py
 ```
 
 You should be able to run MobA smoothly on Windows now. You can find MobBench, the fifty tasks we tested in the paper, on [huggingface](https://huggingface.co/datasets/OpenDFM/MobA-MobBench).
+
+## 📚 MobBench
+
+<iframe src="https://huggingface.co/datasets/OpenDFM/MobA-MobBench/embed/viewer/default/MobBench" frameborder="0" width="100%" height="560px"></iframe>
 
 ## 📑 Citation
 
