@@ -2,7 +2,7 @@
 <div align="center">
 <img src="./assets/title.png"></img> 
 
-<img src="./assets/overview.png" width="500em" ></img>
+<img src="./assets/overview.png" width="70%" ></img>
 
 **🎮 MobA 操作手机就像你一样.**
 
@@ -14,6 +14,7 @@
 
 ## 🔥 新闻
 
+- **[2024.10.19]** 我们在 [Huggingface](https://huggingface.co/datasets/OpenDFM/MobA-MobBench) 上发布了MobBench，并提供对应英文翻译。
 - **[2024.10.18]** 我们在 [GitHub](https://github.com/OpenDFM/MobA) 上开源了MobA，你现在可以在 [arXiv](https://arxiv.org/abs/2410.13757) 上看到我们的论文.
 
 ## 📖 介绍
