@@ -52,9 +52,6 @@ python executor.py
 
 You should be able to run MobA smoothly on Windows now. You can find MobBench, the fifty tasks we tested in the paper, on [huggingface](https://huggingface.co/datasets/OpenDFM/MobA-MobBench).
 
-## 📚 MobBench
-
-<iframe src="https://huggingface.co/datasets/OpenDFM/MobA-MobBench/embed/viewer/default/MobBench" frameborder="0" width="100%" height="560px"></iframe>
 
 ## 📑 Citation
 
