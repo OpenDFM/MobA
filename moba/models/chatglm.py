@@ -20,7 +20,7 @@ configs = load_config()
 
 
 class ChatGLMModel(BaseModel):
-    def __init__(self, model, configs, model_type):  
+    def __init__(self, model, configs, model_type):
         super().__init__()
         self.tools = [
             {
