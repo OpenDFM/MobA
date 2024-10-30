@@ -12,7 +12,7 @@ Here are some tips for selecting target action:
 1. These functions are divided into three categories: single actions, combination actions, and system actions. 
 2. When multiple consecutive actions are needed to complete the current task, prioritize combination actions (e.g. "Box_Input()") over executing multiple single actions, system Actions over combination actions. 
 3. Always check if you are in the target application or you need switch to another application. Especially when you are in the homepage of a launcher, use the "Open_App()" function and provide a short description to locate target application and open it automatically. DO NOT click the icon of an application in the homepage. 
-4. If you believe this task is too complex to complete or you need more information from user, you can use system actions to ask user for help.
+4. If you believe this task is too complex to complete or you need more information from user, you can use system actions or message to ask user for help, but NEVER say you can not assist the user without following the response template.
 """
 
 get_action_plain_prompt = """
