@@ -44,14 +44,14 @@ class OpenAIModel(BaseModel):
         self.max_image_size = configs["MAX_IMAGE_SIZE"]
         self.model_type = model_type
 
-    def calulate_useage(self, response):
+    def calculate_usage(self, response):
         prompt_tokens = response["usage"]["prompt_tokens"]
         completion_tokens = response["usage"].get("completion_tokens", 0)
         self.tokens["prompt_tokens"] += prompt_tokens
         self.tokens["completion_tokens"] += completion_tokens
         print(f"[{self.model_type}] Prompt tokens: {prompt_tokens}, Completion tokens: {completion_tokens}, Cost: ${'{0:.3f}'.format(prompt_tokens / 1000 * self.price[0] + completion_tokens / 1000 * self.price[1])}")
 
-    def calulate_useage_total(self):
+    def calculate_usage_total(self):
         print(
             f"[{self.model_type}] Total prompt tokens: {self.tokens['prompt_tokens']}, Total completion tokens: {self.tokens['completion_tokens']}, Total cost: ${'{0:.3f}'.format(self.tokens['prompt_tokens'] / 1000 * self.price[0] + self.tokens['completion_tokens'] / 1000 * self.price[1])}")
 
@@ -115,7 +115,6 @@ class OpenAIModel(BaseModel):
             raise Exception("Failed to get response.")
         return response
 
-
     def generate_response(self, text, image_list):
         """
 
@@ -159,5 +158,3 @@ class OpenAIModel(BaseModel):
                     messages[0]["content"][i]["image_url"]["url"] = messages[0]["content"][i]["image_url"]["url"][:64] + "..."
 
         return response, messages
-
-

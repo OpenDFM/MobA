@@ -19,7 +19,7 @@ from moba.models.base import BaseModel
 
 
 class GeminiModel(BaseModel):
-    def __init__(self, model, configs):
+    def __init__(self, model, configs, model_type):
         super().__init__()
         import google.generativeai as genai
         genai.configure(api_key=configs["GEMINI_API_KEY"], transport='rest')
@@ -49,17 +49,18 @@ class GeminiModel(BaseModel):
         }
         self.price = configs['PRICE'].get(model, [0.01, 0.03])
         self.max_image_size = configs["MAX_IMAGE_SIZE"]
+        self.model_type = model_type
 
-    def calulate_useage(self, messages, response):
-        prompt_tokens = int(str(self.model_with_vision.count_tokens(messages)).strip().replace("total_tokens: ", ""))
-        completion_tokens = int(str(self.model_with_vision.count_tokens(response)).strip().replace("total_tokens: ", ""))
+    def calculate_usage(self, response):
+        prompt_tokens = response["usage"]["prompt_tokens"]
+        completion_tokens = response["usage"].get("completion_tokens", 0)
         self.tokens["prompt_tokens"] += prompt_tokens
         self.tokens["completion_tokens"] += completion_tokens
-        print(f"Prompt tokens: {prompt_tokens}, Completion tokens: {completion_tokens}, Cost: ${'{0:.2f}'.format(prompt_tokens / 1000 * self.price[0] + completion_tokens / 1000 * self.price[1])}")
+        print(f"[{self.model_type}] Prompt tokens: {prompt_tokens}, Completion tokens: {completion_tokens}, Cost: ${'{0:.3f}'.format(prompt_tokens / 1000 * self.price[0] + completion_tokens / 1000 * self.price[1])}")
 
-    def calulate_useage_total(self):
+    def calculate_usage_total(self):
         print(
-            f"Prompt tokens: {self.tokens['prompt_tokens']}, Completion tokens: {self.tokens['completion_tokens']}, Total cost: ${'{0:.2f}'.format(self.tokens['prompt_tokens'] / 1000 * self.price[0] + self.tokens['completion_tokens'] / 1000 * self.price[1])}")
+            f"[{self.model_type}] Total prompt tokens: {self.tokens['prompt_tokens']}, Total completion tokens: {self.tokens['completion_tokens']}, Total cost: ${'{0:.3f}'.format(self.tokens['prompt_tokens'] / 1000 * self.price[0] + self.tokens['completion_tokens'] / 1000 * self.price[1])}")
 
     def prepare_inputs(self, text, image_list):
         messages = [text, ]
@@ -82,7 +83,7 @@ class GeminiModel(BaseModel):
                 else:
                     response_ = self.model_without_vision.generate_content(messages)
                 response = response_.text.strip()
-                self.calulate_useage(messages, response)
+                self.calculate_usage(messages, response)
             except KeyboardInterrupt:
                 raise Exception("Terminated by user.")
             except Exception as e:

@@ -20,20 +20,23 @@ def command_executor(command, max_retry=3):
     :param max_retry: maximum number of retries
     :return: execution success, result
     """
-    i = 1
+    i = 0
     while True:
         result = subprocess.run(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-        # print(result)
-        if result.stderr:
-            print_with_color(f"Error occurred executing command: {command}", "red")
-            print_with_color(result.stderr, "red")
-            time.sleep((i))
-        elif result.returncode == 0:
+
+        if result.returncode == 0:
+            print_with_color(f"Command executed: {command}", "green")
             return True, result.stdout.strip()
+
+        print_with_color(f"Error occurred executing command: {command}", "red")
+        print_with_color(result.stderr, "red")
 
         i += 1
         if i > max_retry:
             return False, None
+
+        time.sleep(i)
+
         print_with_color("Retry executing", "yellow")
 
 
@@ -289,7 +292,7 @@ class AndroidController(BaseController):
             success, result = command_executor(command3, 1)
         else:
             # exit()
-            # if no xml file is genrated, return None
+            # if no xml file is generated, return None
             return None
         return os.path.normpath(f"{save_dir}/{prefix}.xml")
 
