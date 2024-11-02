@@ -9,14 +9,17 @@ import numpy as np
 # init colorama
 colorama.init(autoreset=True)
 
+
 def save_json(path, target):
-    json.dump(target, open(path, "w", encoding="utf-8"), indent=4,ensure_ascii=False)
+    json.dump(target, open(path, "w", encoding="utf-8"), indent=4, ensure_ascii=False)
+
 
 def load_json_if_exist(path, default={}):
     if not os.path.exists(path):
         return default
     else:
         return json.load(open(path, "r", encoding="utf-8"))
+
 
 def user_check(message=""):
     """
@@ -32,7 +35,8 @@ def user_check(message=""):
         elif user_input == 'N':
             return False
         else:
-            print_with_color("Invalid choice. Please enter either Y or N. Try again.","yellow")
+            print_with_color("Invalid choice. Please enter either Y or N. Try again.", "yellow")
+
 
 def print_with_color(content, front_color="reset", back_color="reset", style="normal", pad=0, logger=None, log_level="info"):
     """
@@ -48,10 +52,10 @@ def print_with_color(content, front_color="reset", back_color="reset", style="no
     content_with_color = getattr(colorama.Fore, front_color.upper()) + getattr(colorama.Back, back_color.upper()) + getattr(colorama.Style, style.upper()) + content
     print(content_with_color)
     if logger:
-        getattr(logger,log_level)(content)
+        getattr(logger, log_level)(content)
 
 
-def encode_image_base64(image_path,max_size=-1):
+def encode_image_base64(image_path, max_size=-1):
     with open(image_path, "rb") as image_file:
         if max_size > 0:
             image = Image.open(image_file)
@@ -63,13 +67,15 @@ def encode_image_base64(image_path,max_size=-1):
             image_bytes = image_file.read()
         return base64.b64encode(image_bytes).decode('utf-8')
 
-def encode_image_PIL(image_path,max_size=-1):
+
+def encode_image_PIL(image_path, max_size=-1):
     if max_size > 0:
         image = Image.open(image_path)
         image.thumbnail((max_size, max_size))
     else:
         image = Image.open(image_path)
     return image
+
 
 def cosine_similarity(vec1, vec2):
     dot_product = np.dot(vec1, vec2)
@@ -82,7 +88,7 @@ def logo():
     content_1 = """
 █████████████████████████████████████████╗
 ╚════════════════════════════════════════╝"""
-    content="""
+    content = """
 ███╗   ███╗ @  ██████╗  @ ██████╗  @  █████╗ 
 ████╗ ████║ @ ██╔═══██╗ @ ██╔══██╗ @ ██╔══██╗
 ██╔████╔██║ @ ██║   ██║ @ ██████╔╝ @ ███████║
@@ -90,22 +96,23 @@ def logo():
 ██║ ╚═╝ ██║ @ ╚██████╔╝ @ ██████╔╝ @ ██║  ██║
 ╚═╝     ╚═╝ @  ╚═════╝  @ ╚═════╝  @ ╚═╝  ╚═╝
 """
-    content_2="""█████████████████████████████████████████╗
+    content_2 = """█████████████████████████████████████████╗
 ╚════════════════════════════════════════╝
 """
-    print_with_color(content_1,"cyan")
+    print_with_color(content_1, "cyan")
 
-    colorlist=["blue","yellow","red","green"]
+    colorlist = ["blue", "yellow", "red", "green"]
     for line in content.split("\n"):
         if line.strip() == "":
             continue
         strings = line.split("@")
         content_with_color = ""
-        for i ,string in enumerate(strings):
-            content_with_color += getattr(colorama.Fore, colorlist[i].upper()) + getattr(colorama.Back, "RESET") + getattr(colorama.Style, "NORMAL") +string
+        for i, string in enumerate(strings):
+            content_with_color += getattr(colorama.Fore, colorlist[i].upper()) + getattr(colorama.Back, "RESET") + getattr(colorama.Style, "NORMAL") + string
         print(content_with_color)
 
-    print_with_color(content_2,"MAGENTA")
+    print_with_color(content_2, "MAGENTA")
+
 
 if __name__ == "__main__":
     logo()
