@@ -17,8 +17,8 @@ STORAGE_PATH: "" # default: "MOBA/storage"
 ### LLM Config ###
 
 MODELS: {
-  "GLOBAL": "OpenAI.gpt-4o",  # The model used in complex scenarios.
-  "LOCAL": "OpenAI.gpt-4o", # The model used in simple scenarios.
+  "GLOBAL": "OpenAI.gpt-4o-2024-08-06",  # The model used in complex scenarios.
+  "LOCAL": "OpenAI.gpt-4o-2024-08-06", # The model used in simple scenarios.
   "EMBEDDING": "OpenAI.text-embedding-3-small", # The model used for text embedding.
 }
 # ["OpenAI.gpt-4-vision-preview","Gemini.gemini-pro-vision","Gemini.gemini-1.5-pro-latest","GLM.glm-4v-plus"]
@@ -34,6 +34,7 @@ PRICE: { # The price of the model per 1k tokens, [input, output], USD
     "gpt-4-vision-preview": [0.01,0.03],
     "gpt-3.5-turbo-0125":[0.0005,0.0015],
     "gpt-4o": [0.005,0.015],
+    "gpt-4o-2024-08-06": [0.005,0.015],
     "gpt-4o-mini": [0.00015,0.0006],
     "gemini-1.5-pro-latest": [0.00125,0.005],
     "text-embedding-3-small": [0.00002,0.0],
