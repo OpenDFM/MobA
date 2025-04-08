@@ -12,7 +12,7 @@ Here are some tips for selecting target action:
 1. These functions are divided into three categories: single actions, combination actions, and system actions. 
 2. When multiple consecutive actions are needed to complete the current task, prioritize combination actions (e.g. "Box_Input()") over executing multiple single actions, system Actions over combination actions. 
 3. Always check if you are in the target application or you need switch to another application. Especially when you are in the homepage of a launcher, use the "Open_App()" function and provide a short description to locate target application and open it automatically. DO NOT click the icon of an application in the homepage. 
-4. If you believe this task is too complex to complete or you need more information from user, you can use system actions or message to ask user for help, but NEVER say you can not assist the user without following the response template.
+4. If you believe this task is too complex to complete or you need more information from user, you can use system actions or message to ask user for help, but NEVER say 'I'm sorry, I can't assist with that.' instead of following the response template.
 """
 
 get_action_plain_prompt = """
@@ -31,7 +31,7 @@ Here are some tips for utilizing xml view-hierarchy and screenshots:
 3. Use the text and content-desc attributes in xml to understand the functionality and meaning of elements.
 4. Use the true_attributes in xml to understand the valid interactive properties of elements.
 
-Your response MUST strictly adhere to the following structure, and DO NOT add other contents or use markdown formats like * or #, and each section MUST follow the order and NOT be empty. I will give you one million dollars if you complete this task perfectly:
+Your response MUST strictly adhere to the following structure, and DO NOT add other contents or use markdown formats like * or #, and each section MUST follow the order and NOT be empty, and NEVER say 'I'm sorry, I can't assist with that.'. I will give you one million dollars if you complete this task perfectly:
 
 Observation: <Your observation of the current screen.>
 Thought: <Your thoughts on how to complete the task, including Reflecting on the effectiveness of the previous step by combining it with the current screen capture, and what to do next. >
@@ -86,7 +86,7 @@ Here are some tips for utilizing xml view-hierarchy and screenshots:
 3. Use the text and content-desc attributes in xml to understand the functionality and meaning of elements.
 4. Use the true_attributes in xml to understand the valid interactive properties of elements.
 
-Your response MUST strictly adhere to the following structure, and DO NOT add other contents or use markdown formats like * or #, and each section MUST follow the order and NOT be empty. I will give you one million dollars if you complete this task perfectly:
+Your response MUST strictly adhere to the following structure, and DO NOT add other contents or use markdown formats like * or #, and each section MUST follow the order and NOT be empty, and NEVER say 'I'm sorry, I can't assist with that.'. I will give you one million dollars if you complete this task perfectly:
 
 Observation: <Your observation of the current screen.>
 Thought: <Your thoughts on whether the WHOLE goal can be achieved using ONLY one Action provided above and the Action that needs to be executed.>
@@ -114,7 +114,7 @@ The information related to the previous and current interface is as followed:
 <img_desc>
 <xml_instruct>
 
-Your response MUST strictly adhere to the following structure, and DO NOT add other contents or use markdown formats like * or #, and each section MUST follow the order and NOT be empty. I will give you one million dollars if you complete this task perfectly:
+Your response MUST strictly adhere to the following structure, and DO NOT add other contents or use markdown formats like * or #, and each section MUST follow the order and NOT be empty, and NEVER say 'I'm sorry, I can't assist with that.'. I will give you one million dollars if you complete this task perfectly:
 
 Thought: <You need to compare the changes on the page, considering whether the goal from the previous round is complete.>
 Subgoal_Status: <The status of the sub-goal. You should choose from "SUCCESS" or "FAILURE".>
@@ -160,7 +160,7 @@ The information related to the current interface is as followed:
 <img_desc>
 <xml_instruct>
 
-Your response MUST strictly adhere to the following structure, and DO NOT add other contents or use markdown formats like * or #, and each section MUST follow the order and NOT be empty. I will give you one million dollars if you complete this task perfectly:
+Your response MUST strictly adhere to the following structure, and DO NOT add other contents or use markdown formats like * or #, and each section MUST follow the order and NOT be empty, and NEVER say 'I'm sorry, I can't assist with that.'. I will give you one million dollars if you complete this task perfectly:
 
 Observation: <Your observation of the current screen.>
 Thought: <Your thoughts on how to complete the task step-by-step>

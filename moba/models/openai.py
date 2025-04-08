@@ -27,7 +27,7 @@ class OpenAIModel(BaseModel):
                 "model": model_version,
                 "messages": [],
                 # "max_tokens": 500,
-                "temperature": 0.1,
+                # "temperature": 0.1,
                 "top_p": 1,
                 "presence_penalty": 0.0,
                 "frequency_penalty": 0.0,
@@ -50,6 +50,14 @@ class OpenAIModel(BaseModel):
 
     def calculate_usage_total(self):
         print(f"[{self.model_type}] Total prompt tokens: {self.tokens['prompt_tokens']}, Total completion tokens: {self.tokens['completion_tokens']}, Total cost: ${'{0:.3f}'.format(self.tokens['prompt_tokens'] / 1000 * self.price[0] + self.tokens['completion_tokens'] / 1000 * self.price[1])}")
+
+    def check_response(self, response):
+        response=response.lower()
+        match_patterns = ["i'm sorry", "i can't", "i'm unable"]
+        for pattern in match_patterns:
+            if pattern in response:
+                return False
+        return True
 
     def prepare_inputs(self, text, image_list):
         messages = []
@@ -119,6 +127,7 @@ class OpenAIModel(BaseModel):
                 response_ = response_.json()
                 response = response_["choices"][0]["message"]["content"]
                 self.calculate_usage(response_)
+                assert self.check_response(response)
             except KeyboardInterrupt:
                 raise Exception("Terminated by user.")
             except Exception as e:

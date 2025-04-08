@@ -14,6 +14,7 @@
 
 ## 🔥 新闻
 
+- **[2025.3.1]** MobA 被 NAACL 2025 Demo Track 接收.
 - **[2024.10.19]** 我们在 [Huggingface](https://huggingface.co/datasets/OpenDFM/MobA-MobBench) 上发布了MobBench，并提供对应英文翻译。
 - **[2024.10.18]** 我们在 [GitHub](https://github.com/OpenDFM/MobA) 上开源了MobA，你现在可以在 [arXiv](https://arxiv.org/abs/2410.13757) 上看到我们的论文.
 
@@ -58,9 +59,9 @@ python executor.py
 
 ```bib
 @misc{zhu2024moba,
-      title={MobA: A Two-Level Agent System for Efficient Mobile Task Automation}, 
-      author={Zichen Zhu and Hao Tang and Yansi Li and Kunyao Lan and Yixuan Jiang and Hao Zhou and Yixiao Wang and Situo Zhang and Liangtai Sun and Lu Chen and Kai Yu},
-      year={2024},
+      title={MobA: Multifaceted Memory-Enhanced Adaptive Planning for Efficient Mobile Task Automation}, 
+      author={Zichen Zhu and Hao Tang and Yansi Li and Dingye Liu and Hongshen Xu and Kunyao Lan and Danyang Zhang and Yixuan Jiang and Hao Zhou and Chenrun Wang and Situo Zhang and Liangtai Sun and Yixiao Wang and Yuheng Sun and Lu Chen and Kai Yu},
+      year={2025},
       eprint={2410.13757},
       archivePrefix={arXiv},
       primaryClass={cs.MA},
