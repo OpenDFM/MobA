@@ -182,7 +182,7 @@ class HarmonyController(BaseController):
         if not user_check():
             print_with_color("Uninstallation canceled", "yellow")
             return False
-        command = f"adb -s {self.device} uninstall {package_name}"
+        command = f"hdc -t {self.device} uninstall {package_name}"
         success, result = command_executor(command)
         return success
 
@@ -332,7 +332,7 @@ class HarmonyController(BaseController):
         :param y: y coordinate
         :return: execution success
         """
-        command = f"adb -s {self.device} shell input tap {x} {y}"
+        command = f"hdc -t {self.device} uitest uiInput click {x} {y}"
         success, result = command_executor(command)
 
     def long_press_by_coordinate(self, x, y, duration=1000):
@@ -343,7 +343,7 @@ class HarmonyController(BaseController):
         :param duration: duration of long press
         :return: execution success
         """
-        command = f"adb -s {self.device} shell input touchscreen swipe {x} {y} {x} {y} {duration}"
+        command = f"hdc -t {self.device} shell uitest uiInput longClick {x} {y} "
         success, result = command_executor(command)
 
     # todo:tap_by_element
@@ -372,15 +372,17 @@ class HarmonyController(BaseController):
             pass
         else:
             print_with_color(f"ERROR: Invalid distance: {distance}", "red")
+            
+        swipe_speed=min(40000,max(200,distance/(duration/1000)))
 
         if direction.upper() == "UP":
-            command = f"adb -s {self.device} shell input touchscreen swipe {x} {y} {x} {y - distance} {duration}"
+            command = f"hdc -t {self.device} shell uitest uiInput swipe {x} {y} {x} {y - distance} {swipe_speed}"
         elif direction.upper() == "DOWN":
-            command = f"adb -s {self.device} shell input touchscreen swipe {x} {y} {x} {y + distance} {duration}"
+            command = f"hdc -t {self.device} shell uitest uiInput swipe {x} {y} {x} {y + distance} {swipe_speed}"
         elif direction.upper() == "LEFT":
-            command = f"adb -s {self.device} shell input touchscreen swipe {x} {y} {x - distance} {y} {duration}"
+            command = f"hdc -t {self.device} shell uitest uiInput swipe {x} {y} {x - distance} {y} {swipe_speed}"
         elif direction.upper() == "RIGHT":
-            command = f"adb -s {self.device} shell input touchscreen swipe {x} {y} {x + distance} {y} {duration}"
+            command = f"hdc -t {self.device} shell uitest uiInput swipe {x} {y} {x + distance} {y} {swipe_speed}"
         else:
             print_with_color(f"ERROR: Invalid direction: {direction}", "red")
 
@@ -396,7 +398,11 @@ class HarmonyController(BaseController):
         :param duration: duration of drag
         :return: execution success
         """
-        command = f"adb -s {self.device} shell input touchscreen swipe {start_x} {start_y} {end_x} {end_y} {duration}"
+        
+        distance = ((end_x - start_x) ** 2 + (end_y - start_y) ** 2) ** 0.5
+        swipe_speed = min(40000, max(200, distance / (duration / 1000)))
+        
+        command = f"hdc -t {self.device} shell uitest uiInput drag  {start_x} {start_y} {end_x} {end_y} {swipe_speed}"
         success, result = command_executor(command)
 
     def swipe_precise(self, start, end, duration=400):
@@ -409,43 +415,27 @@ class HarmonyController(BaseController):
         """
         start_x, start_y = start
         end_x, end_y = end
-        command = f"adb -s {self.device} shell input swipe {start_x} {start_y} {end_x} {end_y} {duration}"
+        distance = ((end_x - start_x) ** 2 + (end_y - start_y) ** 2) ** 0.5
+        swipe_speed = min(40000, max(200, distance / (duration / 1000)))
+    
+        command = f"hdc -t {self.device} shell uitest uiInput swipe {start_x} {start_y} {end_x} {end_y} {swipe_speed}"
         success, result = command_executor(command)
 
-    def type_text(self, text):
+    def type_text(self, text, x=self.width/2, y=self.height/2):
         """
         Type text
         :param text: text to be typed
         :return: execution success
         """
-        # Convert the text to unicode escape sequence
-        if text.isascii():
-            # ASCII characters
-            command = f"adb -s {self.device} shell input text '{text}'"
-            success, result = command_executor(command)
-        else:
-            if not self.unicode_input:
-                self.unicode_input = self.enable_unicode_input()
-                time.sleep(1)
-            # Non-ASCII characters
-            command = f"adb -s {self.device} shell am broadcast -a ADB_INPUT_TEXT --es msg '{text}'"
-            success, result = command_executor(command)
-            if not success or not self.unicode_input:
-                print_with_color("Please switch to ADBKeyBoard to type non-ascii characters.\n"
-                                 "You can download ADBKeyBoard from this repository:\n\n"
-                                 "https://github.com/senzhk/ADBKeyBoard?tab=readme-ov-file#build-and-install-apk\n\n"
-                                 "And follow scripts below:\n", front_color="yellow")
-                print_with_color("adb install ADBKeyboard.apk\n"
-                                 "adb shell ime enable com.android.adbkeyboard/.AdbIME\n"
-                                 "adb shell ime set com.android.adbkeyboard/.AdbIME\n", front_color="cyan")
-            # self.disable_unicode_input()
+        command = f"hdc -t {self.device} shell uitest uiInput inputText {x} {y} '{text}'"
+        success, result = command_executor(command)
 
     def clear_text(self,del_length=100):
-        command_1 = f"adb -s {self.device} shell input keyevent KEYCODE_MOVE_END"
+        command_1 = f"hdc -t {self.device} shell input keyevent KEYCODE_MOVE_END"
         success, result = command_executor(command_1)
 
         for _ in range(del_length):
-            command_2 = f"adb -s {self.device} shell input keyevent KEYCODE_DEL"
+            command_2 = f"hdc -t {self.device} shell input keyevent KEYCODE_DEL"
             success, result = command_executor(command_2)
 
     def back(self):
