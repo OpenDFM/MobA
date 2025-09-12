@@ -59,14 +59,12 @@ You should be able to run MobA smoothly on Windows now. You can find MobBench, t
 If you find our work useful, please cite us!
 
 ```bib
-@misc{zhu2024moba,
-      title={MobA: Multifaceted Memory-Enhanced Adaptive Planning for Efficient Mobile Task Automation}, 
-      author={Zichen Zhu and Hao Tang and Yansi Li and Dingye Liu and Hongshen Xu and Kunyao Lan and Danyang Zhang and Yixuan Jiang and Hao Zhou and Chenrun Wang and Situo Zhang and Liangtai Sun and Yixiao Wang and Yuheng Sun and Lu Chen and Kai Yu},
-      year={2025},
-      eprint={2410.13757},
-      archivePrefix={arXiv},
-      primaryClass={cs.MA},
-      url={https://arxiv.org/abs/2410.13757}, 
+@inproceedings{zhu2025moba,
+  title={MobA: Multifaceted Memory-Enhanced Adaptive Planning for Efficient Mobile Task Automation},
+  author={Zhu, Zichen and Tang, Hao and Li, Yansi and Liu, Dingye and Xu, Hongshen and Lan, Kunyao and Zhang, Danyang and Jiang, Yixuan and Zhou, Hao and Wang, Chenrun and others},
+  booktitle={Proceedings of the 2025 Conference of the Nations of the Americas Chapter of the Association for Computational Linguistics: Human Language Technologies (System Demonstrations)},
+  pages={535--549},
+  year={2025}
 }
 ```
 
