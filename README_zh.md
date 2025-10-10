@@ -1,10 +1,14 @@
-
 <div align="center">
+
 <img src="./assets/title.png"></img> 
 
 <img src="./assets/overview.png" width="70%" ></img>
 
-**🎮 MobA 操作手机就像你一样.**
+<img src="./assets/detail.png" width="70%" ></img>
+
+**MobA: Multifaceted Memory-Enhanced Adaptive Planning For Efficient Mobile Task Automation**
+
+**🎮 MobA 就像你一样操作手机.**
 
 🌐 [网站](https://github.com/OpenDFM/MobA) | 📃 [论文](https://arxiv.org/abs/2410.13757/) | 🤗 [MobBench](https://huggingface.co/datasets/OpenDFM/MobA-MobBench) | 🗃️ [代码](https://github.com/OpenDFM/MobA)
 
