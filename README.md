@@ -1,8 +1,12 @@
-
 <div align="center">
+
 <img src="./assets/title.png"></img> 
 
 <img src="./assets/overview.png" width="70%" ></img>
+
+<img src="./assets/detail.png" width="70%" ></img>
+
+**MobA: Multifaceted Memory-Enhanced Adaptive Planning For Efficient Mobile Task Automation**
 
 **🎮 MobA manipulates mobile phones just like how you would.**
 
